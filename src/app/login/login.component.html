@@ -1,0 +1,48 @@
+<!-- <div *ngIf="!validUserFlag">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <label>
+            User Name:
+            <input type="text" formControlName="userId">
+        </label>
+        
+        <label>
+            Password:
+            <input type="password" formControlName="password">
+        </label>
+    
+        <button type="submit">Login</button>
+    </form>
+</div> -->
+
+<!-- <div *ngIf="validUserFlag"> -->
+    <!-- <h3 *ngIf="validUserFlag">Welcome {{userNameToDisplay}}</h3>
+    <button *ngIf="validUserFlag" type="submit" (click)="logOut()">Logout</button> -->
+<!-- </div> -->
+
+<ul>
+    <li><a class="active">Photo Hub</a></li>
+    <li><a href="Home">Home</a></li>
+    <li *ngIf="validUserFlag"><a routerLink="gallery">Gallery</a></li>   
+    
+    <div *ngIf="!validUserFlag">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <label>
+                User Name:
+                <input type="text" formControlName="userId">
+            </label>
+            
+            <label>
+                Password:
+                <input type="password" formControlName="password">
+            </label>
+        
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div *ngIf="validUserFlag">
+        <h3>Welcome {{userNameToDisplay}}</h3>
+        <button type="submit" (click)="logOut()">Logout</button>
+    </div>
+</ul> 
+<router-outlet *ngIf="validUserFlag"></router-outlet>
